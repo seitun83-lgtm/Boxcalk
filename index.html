@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Разметка ящиков (индивидуальные высоты + фасады)</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#4CAF50">
+    <link rel="apple-touch-icon" href="icon-192.png">
+</head>
+<body>
+    <div class="container">
+        <h1>🧰 Расчёт разметки ящиков и фасадов</h1>
+        <form id="calcForm">
+            <label>
+                Высота проёма шкафа (мм):
+                <input type="number" id="openingHeight" step="0.1" required>
+            </label>
+            
+            <label>
+                Количество ящиков:
+                <input type="number" id="numBoxes" min="1" step="1" required>
+            </label>
+
+            <div id="boxHeightsContainer">
+                <!-- Динамические поля высот ящиков -->
+            </div>
+
+            <p class="note">
+                Отступ нижнего ящика от днища: <strong>20 мм</strong> (фиксирован).<br>
+                После ввода количества ящиков укажите высоту каждого.<br>
+                Оставшееся пространство равномерно распределяется между ящиками (зазоры одинаковы).<br>
+                <strong>Фасады:</strong> нижний начинается на 14 мм ниже дна проёма, верхний заканчивается на 11 мм выше верха, межфасадные зазоры 3 мм. Высота фасадов пропорциональна высотам ящиков.
+            </p>
+
+            <button type="submit">Рассчитать</button>
+        </form>
+
+        <div id="result" class="result hidden">
+            <h2>Результаты:</h2>
+            
+            <h3>📍 Направляющие ящиков (центр боковой стенки)</h3>
+            <table>
+                <thead>
+                    <tr><th>Ящик (снизу)</th><th>Высота от дна проёма (мм)</th></tr>
+                </thead>
+                <tbody id="resultBody"></tbody>
+            </table>
+
+            <div id="warning" class="warning"></div>
+            <div id="info" class="info"></div>
+
+            <div id="facadeResult" class="facade-result">
+                <h3>📐 Фасады (пропорционально высотам ящиков)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ящик</th>
+                            <th>Высота фасада (мм)</th>
+                            <th>Нижний край (от дна проёма, мм)</th>
+                            <th>Верхний край (от дна проёма, мм)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="facadeBody"></tbody>
+                </table>
+                <p class="note-facade">
+                    * Нижний край первого фасада: -14 мм (ниже дна), верхний край последнего: H + 11 мм.
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

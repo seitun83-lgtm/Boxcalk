@@ -1,0 +1,56 @@
+.facade-result {
+    margin-top: 30px;
+    border-top: 2px dashed #4CAF50;
+    padding-top: 15px;
+}
+
+.facade-result h3 {
+    color: #2e7d32;
+}
+
+.note-facade {
+    background-color: #fff3e0;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    color: #bf360c;
+    margin-top: 10px;
+}
+
+table {
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.box-height-wrapper {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid #4CAF50;
+}
+.box-height-wrapper label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #333;
+}
+.box-height-wrapper input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
